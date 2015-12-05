@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Gustavo Bazan']
   spec.email         = ['gssbzn@gmail.com']
 
-  spec.summary       = 'Elevateme'
-  spec.description   = 'Elevateme'
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = 'A simple elevator simulation'
+  spec.description   = 'Simulate an elevator, construct one with a list of floors and enjoy the travel,'
+  spec.homepage      = 'https://github.com/gssbzn/elevator'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
