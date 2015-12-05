@@ -1,0 +1,18 @@
+language: ruby
+rvm:
+  - 2.0.0
+  - 2.1
+  - 2.2.2
+  - ruby-head
+  - jruby
+  - jruby-head
+
+sudo: false
+
+cache: bundler
+
+matrix:
+  allow_failures:
+    - rvm: ruby-head
+    - rvm: jruby-head
+  fast_finish: true
