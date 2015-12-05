@@ -64,4 +64,45 @@ describe Elevator::Elevator do
       elevator.start_moving
     end
   end
+
+  describe '#up?' do
+    it 'should be true when new' do
+      elevator = Elevator::Elevator.new floors
+      expect(elevator.up?).to be_truthy
+    end
+    it 'should be true when going up' do
+      elevator = Elevator::Elevator.new floors
+      elevator.mark_floor('3')
+      elevator.start_moving
+      expect(elevator.up?).to be_truthy
+    end
+    it 'should be false when going down' do
+      elevator = Elevator::Elevator.new floors
+      elevator.mark_floor('4')
+      elevator.start_moving
+      elevator.mark_floor('2')
+      expect(elevator.up?).to be_falsey
+    end
+  end
+
+  describe '#down?' do
+    it 'should be false when new' do
+      elevator = Elevator::Elevator.new floors
+      expect(elevator.down?).to be_falsey
+    end
+    it 'should be false when going up' do
+      elevator = Elevator::Elevator.new floors
+      elevator.mark_floor('3')
+      elevator.start_moving
+      expect(elevator.down?).to be_falsey
+    end
+    it 'should be true when going down' do
+      elevator = Elevator::Elevator.new floors
+      elevator.mark_floor('4')
+      elevator.start_moving
+      elevator.mark_floor('2')
+      elevator.start_moving
+      expect(elevator.down?).to be_truthy
+    end
+  end
 end
