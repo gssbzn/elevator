@@ -15,5 +15,9 @@ describe Elevator::DoorOpener do
       expect(subject).to receive(:open_doors).with('2').once
       elevator.start_moving
     end
+    it 'outputs open doors on marked floor' do
+      subject
+      expect { elevator.start_moving }.to output("doors open at 2\n").to_stdout_from_any_process
+    end
   end
 end

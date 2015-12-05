@@ -26,7 +26,7 @@ elevator.mark_floor '4'
 elevator.start_moving
 ```
 
-You ca customize what happens on each floor the elevator visits,
+You can customize what happens on each floor the elevator visits,
 you just have to implement and observer that extends [Elevator::Observer](lib/elevator/observer.rb)
 ```ruby
 elevator = Elevator::Elevator.new ['1', '2', '3', '4']
