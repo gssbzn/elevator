@@ -1,6 +1,6 @@
 module Elevator
   # Especific Observer to handle elevator doors
-  class DoorOpener < ElevatorObserver
+  class DoorOpener < Observer
     # Observer callback
     def update(floor, marked_floor)
       open_doors(floor) if marked_floor

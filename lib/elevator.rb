@@ -4,5 +4,5 @@ require 'elevator/version'
 module Elevator
 end
 require 'elevator/elevator'
-require 'elevator/elevator_observer'
+require 'elevator/observer'
 require 'elevator/door_opener'
