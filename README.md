@@ -9,7 +9,7 @@ A simple simulation of an elevator, have fun traveling with it
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'elevator' git: 'https://github.com/gssbzn/elevator.git'
+gem 'elevator', git: 'https://github.com/gssbzn/elevator.git'
 ```
 
 And then execute:
@@ -27,7 +27,8 @@ elevator.start_moving
 ```
 
 You can customize what happens on each floor the elevator visits,
-you just have to implement and observer that extends [Elevator::Observer](lib/elevator/observer.rb)
+you just have to implement an observer that extends [Elevator::Observer](lib/elevator/observer.rb)
+like [Elevator::DoorOpener](lib/elevator/door_opener.rb)
 ```ruby
 elevator = Elevator::Elevator.new ['1', '2', '3', '4']
 Elevator::DoorOpener.new elevator
@@ -38,6 +39,8 @@ Will output
 ```
 doors open at 4
 ```
+The class `Elevator::DoorOpener` can also be extended
+overriding the `open_doors` method
 
 ## Contributing
 
@@ -46,3 +49,7 @@ doors open at 4
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+
+## License
+
+MIT License. Copyright 2015 Gustavo Bazan. http://gustavobazan.com

@@ -62,37 +62,74 @@ describe Elevator::Elevator do
   end
 
   describe '#up?' do
-    it 'should be true when new' do
-      expect(subject.up?).to be_truthy
+    context 'new instance' do
+      it 'should be true' do
+        expect(subject.up?).to be_truthy
+      end
     end
-    it 'should be true when going up' do
-      subject.mark_floor('3')
-      subject.start_moving
-      expect(subject.up?).to be_truthy
+    context 'going up' do
+      before :each do
+        subject.mark_floor('3')
+        subject.start_moving
+      end
+      it 'should be true' do
+        expect(subject.up?).to be_truthy
+      end
     end
-    it 'should be false when going down' do
-      subject.mark_floor('4')
-      subject.start_moving
-      subject.mark_floor('2')
-      expect(subject.up?).to be_falsey
+    context 'going down' do
+      before :each do
+        subject.mark_floor('4')
+        subject.start_moving
+        subject.mark_floor('2')
+      end
+      it 'should be false' do
+        expect(subject.up?).to be_falsey
+      end
     end
   end
 
   describe '#down?' do
-    it 'should be false when new' do
-      expect(subject.down?).to be_falsey
+    context 'new instance' do
+      it 'should be false' do
+        expect(subject.down?).to be_falsey
+      end
     end
-    it 'should be false when going up' do
-      subject.mark_floor('3')
-      subject.start_moving
-      expect(subject.down?).to be_falsey
+    context 'going up' do
+      before :each do
+        subject.mark_floor('3')
+        subject.start_moving
+      end
+      it 'should be false' do
+        expect(subject.down?).to be_falsey
+      end
     end
-    it 'should be true when going down' do
-      subject.mark_floor('4')
-      subject.start_moving
-      subject.mark_floor('2')
-      subject.start_moving
-      expect(subject.down?).to be_truthy
+    context 'going down' do
+      before :each do
+        subject.mark_floor('4')
+        subject.start_moving
+        subject.mark_floor('2')
+        subject.start_moving
+      end
+      it 'should be true' do
+        expect(subject.down?).to be_truthy
+      end
+    end
+  end
+  describe '#marked_floor?' do
+    context 'with a marked floor' do
+      it 'should be true for a valid marked floor' do
+        subject.mark_floor('3')
+        expect(subject.marked_floor?('3')).to be_truthy
+      end
+      it 'should be false for floor not marked' do
+        subject.mark_floor('3')
+        expect(subject.marked_floor?('2')).to be_falsey
+      end
+    end
+    context 'without a marked floor' do
+      it 'should be false' do
+        expect(subject.marked_floor?('3')).to be_falsey
+      end
     end
   end
 end

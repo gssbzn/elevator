@@ -57,6 +57,14 @@ module Elevator
       direction == 'down'.freeze
     end
 
+    # Is the floor marked to go
+    # @param floor [Object] a valid floor
+    # @return true if floor is marked
+    def marked_floor?(floor = nil)
+      floor ||= @current_floor
+      marked_floors.include? floor
+    end
+
     private
 
     def init_direction
@@ -89,12 +97,7 @@ module Elevator
       @current_floor = floors.at(i)
       changed
       notify_observers(current_floor, marked_floor?)
-    end
-
-    def marked_floor?
-      return false unless marked_floors.include? @current_floor
       marked_floors.delete @current_floor
-      true
     end
 
     def enumerable_floors?(floors)
