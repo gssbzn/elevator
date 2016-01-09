@@ -52,4 +52,4 @@ overriding the `open_doors` method
 
 ## License
 
-MIT License. Copyright 2015 Gustavo Bazan. http://gustavobazan.com
+MIT License. Copyright 2015-2016 Gustavo Bazan. http://gustavobazan.com

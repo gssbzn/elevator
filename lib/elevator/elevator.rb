@@ -3,7 +3,7 @@ require 'observer'
 # A simple simulation of an Elevator
 module Elevator
   # Elevator class, store a list of floors,
-  # allows you to mark floors and move thru them
+  # allows you to mark floors and move through them
   class Elevator
     include ::Observable
 
@@ -11,7 +11,7 @@ module Elevator
     #   @return [Array] list of elevator floors
     attr_reader :floors
     # @!attribute [r] current_floor
-    #   @return [Object] elavator current floor
+    #   @return [Object] elevator current floor
     attr_reader :current_floor
     # @!attribute [r] direction
     #   @return [Object] direction the elevator is traveling
@@ -20,7 +20,7 @@ module Elevator
     #   @return [Array] selected floors for travel
     attr_reader :marked_floors
 
-    # New Elevator intance
+    # New Elevator instance
     # @param floors [Array] list of floors the elevator has in the correct order
     def initialize(floors)
       enumerable_floors?(floors)
@@ -38,7 +38,7 @@ module Elevator
       @marked_floors << floor
     end
 
-    # Move the elevator thru the selected floors
+    # Move the elevator through the selected floors
     def start_moving
       return if marked_floors.empty?
       init_direction
@@ -102,12 +102,12 @@ module Elevator
 
     def enumerable_floors?(floors)
       return if floors.is_a? Enumerable
-      fail ArgumentError, "floors must be Enaumerable: #{floors.inspect}"
+      fail ArgumentError, "floors must be Enumerable: #{floors.inspect}"
     end
 
     def floor_exists?(floor)
       return if floors.include? floor
-      fail ArgumentError, "selected floor dosn't exists: #{floor}"
+      fail ArgumentError, "selected floor doesn't exists: #{floor}"
     end
   end
 end

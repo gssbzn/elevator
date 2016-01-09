@@ -3,6 +3,7 @@ require 'spec_helper'
 describe Elevator::Elevator do
   let(:floors) { ['1', '2', '3', '4'] }
   subject { Elevator::Elevator.new floors }
+
   describe '#new' do
     it 'takes a list of floors' do
       expect(subject).to be_an_instance_of(Elevator::Elevator)
