@@ -80,6 +80,7 @@ module Elevator
     end
 
     def change_direction
+      @direction = up? ? DOWN : UP
     end
 
     def can_continue?(i)
