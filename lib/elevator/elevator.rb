@@ -6,7 +6,11 @@ module Elevator
   # allows you to mark floors and move through them
   class Elevator
     include ::Observable
-
+    
+    # Up direction
+    UP = 'up'.freeze
+    # Down direction
+    DOWN = 'down'.freeze
     # @!attribute [r] floors
     #   @return [Array] list of elevator floors
     attr_reader :floors
@@ -26,7 +30,7 @@ module Elevator
       enumerable_floors?(floors)
       @floors = floors
       @current_floor = @floors.first
-      @direction = 'up'.freeze
+      @direction = UP
       @marked_floors = []
     end
 
@@ -48,13 +52,13 @@ module Elevator
     # Is the elevator going up?
     # @return true if direction is up
     def up?
-      direction == 'up'.freeze
+      direction == UP
     end
 
     # Is the elevator going down?
     # @return true if direction is down
     def down?
-      direction == 'down'.freeze
+      direction == DOWN
     end
 
     # Is the floor marked to go
@@ -69,14 +73,13 @@ module Elevator
 
     def init_direction
       if floors.index(marked_floors.first) > floors.index(current_floor)
-        @direction = 'up'.freeze
+        @direction = UP
       else
-        @direction = 'down'.freeze
+        @direction = DOWN
       end
     end
 
     def change_direction
-      @direction = up? ? 'down'.freeze : 'up'.freeze
     end
 
     def can_continue?(i)
