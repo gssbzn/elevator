@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Elevator
   # Especific Observer to handle elevator doors
   class DoorOpener < Observer

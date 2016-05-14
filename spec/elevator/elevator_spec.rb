@@ -1,7 +1,8 @@
+# frozen_string_literal: true
 require 'spec_helper'
 
 describe Elevator::Elevator do
-  let(:floors) { ['1', '2', '3', '4'] }
+  let(:floors) { %w(1 2 3 4) }
   subject { Elevator::Elevator.new floors }
 
   describe '#new' do
@@ -29,7 +30,7 @@ describe Elevator::Elevator do
     it 'add floors to marked_floors' do
       subject.mark_floor('3')
       subject.mark_floor('2')
-      expect(subject.marked_floors).to match_array ['3', '2']
+      expect(subject.marked_floors).to match_array %w(3 2)
     end
     it 'should not repeat floors on marked_floors' do
       subject.mark_floor('3')

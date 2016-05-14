@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'observer'
 
 # A simple simulation of an Elevator
@@ -6,11 +7,11 @@ module Elevator
   # allows you to mark floors and move through them
   class Elevator
     include ::Observable
-    
+
     # Up direction
-    UP = 'up'.freeze
+    UP = 'up'
     # Down direction
-    DOWN = 'down'.freeze
+    DOWN = 'down'
     # @!attribute [r] floors
     #   @return [Array] list of elevator floors
     attr_reader :floors
@@ -72,11 +73,11 @@ module Elevator
     private
 
     def init_direction
-      if floors.index(marked_floors.first) > floors.index(current_floor)
-        @direction = UP
-      else
-        @direction = DOWN
-      end
+      @direction = if floors.index(marked_floors.first) > floors.index(current_floor)
+                     UP
+                   else
+                     DOWN
+                   end
     end
 
     def change_direction
@@ -106,12 +107,12 @@ module Elevator
 
     def enumerable_floors?(floors)
       return if floors.is_a? Enumerable
-      fail ArgumentError, "floors must be Enumerable: #{floors.inspect}"
+      raise ArgumentError, "floors must be Enumerable: #{floors.inspect}"
     end
 
     def floor_exists?(floor)
       return if floors.include? floor
-      fail ArgumentError, "selected floor doesn't exists: #{floor}"
+      raise ArgumentError, "selected floor doesn't exists: #{floor}"
     end
   end
 end

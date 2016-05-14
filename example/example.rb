@@ -1,22 +1,23 @@
+# frozen_string_literal: true
 require 'bundler/setup'
 require 'elevator'
 
-floors = [
-  'B',
-  'GF',
-  '1',
-  '2',
-  '3',
-  '4',
-  '5',
-  '6',
-  '7',
-  '8',
-  '9',
-  '10',
-  '11',
-  'PH'
-]
+floors = %w(
+  B
+  GF
+  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+  10
+  11
+  PH
+)
 
 ELEVATOR = Elevator::Elevator.new floors
 Elevator::DoorOpener.new(ELEVATOR)
@@ -38,7 +39,7 @@ loop do
     begin
       ELEVATOR.mark_floor(input)
     rescue ArgumentError
-      puts "invalid option"
+      puts 'invalid option'
     end
   end
 end

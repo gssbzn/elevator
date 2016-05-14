@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'elevator/version'
 
 # A simple simulation of an Elevator

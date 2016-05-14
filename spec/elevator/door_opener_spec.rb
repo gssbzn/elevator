@@ -1,7 +1,8 @@
+# frozen_string_literal: true
 require 'spec_helper'
 require 'elevator/elevator'
 describe Elevator::DoorOpener do
-  let(:elevator) { Elevator::Elevator.new ['1', '2', '3'] }
+  let(:elevator) { Elevator::Elevator.new %w(1 2 3) }
   subject { Elevator::DoorOpener.new(elevator) }
   describe 'update' do
     before :each do
