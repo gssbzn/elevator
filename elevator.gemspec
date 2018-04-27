@@ -22,5 +22,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'coveralls', '~>0.8.0', '>= 0.8.0'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.4', '>= 3.4.0'
-  spec.add_development_dependency 'yard', '~> 0.8.7', '>= 0.8.0'
+  spec.add_development_dependency 'yard', '~> 0.9.11', '>= 0.9.11'
 end
