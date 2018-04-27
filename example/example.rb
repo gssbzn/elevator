@@ -1,8 +1,9 @@
 # frozen_string_literal: true
+
 require 'bundler/setup'
 require 'elevator'
 
-floors = %w(
+floors = %w[
   B
   GF
   1
@@ -17,7 +18,7 @@ floors = %w(
   10
   11
   PH
-)
+]
 
 ELEVATOR = Elevator::Elevator.new floors
 Elevator::DoorOpener.new(ELEVATOR)

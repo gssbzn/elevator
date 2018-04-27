@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'observer'
 
 # A simple simulation of an Elevator
@@ -9,9 +10,9 @@ module Elevator
     include ::Observable
 
     # Up direction
-    UP = 'up'
+    UP = 'up'.freeze
     # Down direction
-    DOWN = 'down'
+    DOWN = 'down'.freeze
     # @!attribute [r] floors
     #   @return [Array] list of elevator floors
     attr_reader :floors

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
+
 module Elevator
-  # Especific Observer to handle elevator doors
+  # Specific Observer to handle elevator doors
   class DoorOpener < Observer
     # Observer callback
     def update(floor, marked_floor)
